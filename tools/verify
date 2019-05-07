@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types = 1);
+
+use App\Contracts\Verification\VerificationCodeReceived;
+
+include __DIR__ . '/../vendor/autoload.php';
+
+$publisher = new ToolsPublisher(__DIR__ . '/../.env');
+
+$publisher->sendMessage(
+    new VerificationCodeReceived(
+        'd647f0c5-c74c-425b-b97f-b2fab60a0d23',
+        'e51a2c35a0b48edb890da25d6f47daabfe596dfe'
+    )
+);
